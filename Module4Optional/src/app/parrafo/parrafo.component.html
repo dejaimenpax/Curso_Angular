@@ -1,0 +1,28 @@
+<h1>Ejercicios propuestos del Módulo 5</h1>
+<section>
+    <h2>Creación de directiva para subrayar un párrafo</h2>
+    <p>Este párrafo no debe poder subrayarse.</p>
+    <p appUnderline>Este párrafo deberá poder ser subrayado al pasar el ratón por encima.</p>
+</section>
+<section>
+    <h2>Uso de Decimal Pipe</h2>
+    <p>Aquí se pone un número sin formato dado: {{number_decimalPipe}}</p>
+    <p>Aquí se pone el mismo número aproximado a la centésima mediante Decimal Pipe: {{number_decimalPipe | number:'3.0-2'}}</p>
+</section>
+<section>
+    <h2>Uso de Slice Pipe</h2>
+    <p>Aquí se imprime un array sin hacer nada: {{animals}}</p>
+    <p>Aquí se imprime un array usando Slice Pipe para solo imprimir tres: {{animals | slice:0:3}}</p>
+</section>
+<section>
+    <h2>Uso de Currency Pipe</h2>
+    <p>Aquí se imprime un precio sin formato: {{price}}</p>
+    <p>Aquí se imprime un precio con símbolo de libras en formato español con decimales truncados usando Currency Pipe: {{price | currency: 'symbol':'1.0-2':'GBP'}}</p>
+</section>
+<section>
+    <h2>Uso de Date Pipe</h2>
+    <p>Aquí se imprime una fecha con el formato por defecto: {{date}}</p>
+    <p>Aquí se imprime una fecha con formato 'longDate': {{date | date:'longDate'}}</p>
+</section>
+<section>
+</section>
