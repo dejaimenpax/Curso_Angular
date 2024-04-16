@@ -13,10 +13,18 @@
     text-indent: -9999px;
 }
 
-.header_auth {
+.header_register {
     position: absolute;
     top: 13px;
-    right: 15px;
+    right: 10px;
+    border: none;
+    background-color: white;
+}
+
+.header_login {
+    position: absolute;
+    top: 13px;
+    right: 80px;
     border: none;
     background-color: white;
 }
