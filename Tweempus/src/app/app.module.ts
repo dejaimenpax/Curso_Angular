@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { LoginModule } from './login/login.module';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    LoginModule,
+    ProfileModule,
     DashboardModule
   ],
   providers: [
@@ -22,4 +26,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
