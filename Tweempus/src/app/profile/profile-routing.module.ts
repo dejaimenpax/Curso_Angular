@@ -12,8 +12,8 @@ const profileRoutes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'my-twimps', //se pone por defecto al llamar a profile
-                pathMatch: 'prefix'
+                redirectTo: '/profile/my-twimps', //se pone por defecto al llamar a profile
+                pathMatch: 'full'
             },
             {   path: 'my-twimps',
                 component: MyTwimpsComponent
