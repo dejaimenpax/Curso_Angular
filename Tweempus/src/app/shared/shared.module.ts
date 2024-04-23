@@ -4,6 +4,8 @@ import { TwimpCardComponent } from './twimp/twimp-card/twimp-card.component';
 import { TwimpListComponent } from './twimp/twimp-list/twimp-list.component';
 import { AuthorCardComponent } from './author/author-card/author-card.component';
 import { RouterModule } from '@angular/router';
+import { AuthorService } from './author/author.service';
+import { TwimpService } from './twimp/twimp.service';
 
 
 
@@ -17,6 +19,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule
   ],
-  exports: [TwimpCardComponent, TwimpListComponent, AuthorCardComponent, RouterModule]
+  exports: [TwimpCardComponent, TwimpListComponent, AuthorCardComponent, RouterModule],
+  providers: [AuthorService, TwimpService]
 })
 export class SharedModule { }
