@@ -6,6 +6,7 @@ import { AuthorCardComponent } from './author/author-card/author-card.component'
 import { RouterModule } from '@angular/router';
 import { AuthorService } from './author/author.service';
 import { TwimpService } from './twimp/twimp.service';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 
 
