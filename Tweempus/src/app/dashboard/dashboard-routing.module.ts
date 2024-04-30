@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
+import { AuthGuard } from '../core/auth-guard';
 
 const dashboardRoutes: Routes = [
     { 
         path: 'dashboard', 
-        component: DashboardComponent 
+        component: DashboardComponent,
+        //redirect to login if user not recognized
+        canActivate: [AuthGuard]
     },
     {
         path: '',

@@ -16,15 +16,15 @@
 .header_register {
     position: absolute;
     top: 13px;
-    right: 10px;
+    right: 105px;
     border: none;
     background-color: white;
 }
 
-.header_login {
+.header_auth {
     position: absolute;
     top: 13px;
-    right: 80px;
+    right: 10px;
     border: none;
     background-color: white;
 }

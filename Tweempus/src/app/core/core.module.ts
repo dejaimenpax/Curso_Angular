@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationService } from './authentication.service';
 
 
 
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
   exports: [
     HeaderComponent,
     NavComponent
-  ]
+  ],
+  providers: [AuthenticationService]
 })
 export class CoreModule { }

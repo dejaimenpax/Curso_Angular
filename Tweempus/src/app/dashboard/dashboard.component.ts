@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   twimpList: Twimp[] = [];
 
   constructor(
+    //declarated in constructor in order t be seen from the dependencies injector
     private authorService: AuthorService,
     private twimpService: TwimpService
   ) {}

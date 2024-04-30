@@ -1,7 +1,8 @@
 <section class="section-heaader">
     <h2 class="header_title" routerLink="/" routerLinkActive="active">Tweempus</h2>
     <section>
-        <button class="header_login" routerLink="/login" routerLinkActive="active">Log-in</button>
-        <button class="header_register">Regístrate</button>
+        <button class="header_auth" routerLink="/login" routerLinkActive="active" *ngIf="!checkLogin()">Iniciar Sesión</button>
+        <button class="header_auth" *ngIf="checkLogin()" (click)="logOut()">Cerrar Sesión</button>
+        <button class="header_register" *ngIf="!checkLogin()" >Regístrate</button>
     </section>
 </section>
