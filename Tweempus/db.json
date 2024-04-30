@@ -2,13 +2,13 @@
   "authors": [
     {
       "id": "1",
-      "fullName": "David East",
-      "image": "https://randomuser.me/api/portraits/men/83.jpg"
+      "fullName": "Jaime González",
+      "image": "https://randomuser.me/api/portraits/men/22.jpg"
     },
     {
       "id": "2",
-      "fullName": "David Teitelbaum",
-      "image": "https://randomuser.me/api/portraits/men/82.jpg"
+      "fullName": "Jaime Casero",
+      "image": "https://randomuser.me/api/portraits/men/46.jpg"
     }
   ],
   "authenticated": [],
@@ -16,16 +16,16 @@
     {
       "id": "Mx5Cf1483389903318",
       "author": "1",
-      "by": "David East",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur sodales libero, sit amet posuere arcu consectetur ut. Nam volutpat ligula ac nunc consectetur vestibulum.",
-      "timestamp": "01-01-2023"
+      "by": "Jaime González",
+      "content": "If it's a boy, I'll call him ''Michael'); DROP TABLE USERS;--''.",
+      "timestamp": "01-01-2024"
     },
     {
       "id": "T4qdo1483390015454",
       "author": "2",
-      "by": "David Teitelbaum",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur sodales libero, sit amet posuere arcu consectetur ut. Nam volutpat ligula ac nunc consectetur vestibulum.",
-      "timestamp": "01-01-2023"
+      "by": "Jaime Casero",
+      "content": "Programmers always mix up Halloween and Christmas because OCT 31 = DEC 25.",
+      "timestamp": "01-01-2024"
     }
   ],
   "author-favorites": [
