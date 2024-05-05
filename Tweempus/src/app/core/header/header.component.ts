@@ -7,11 +7,17 @@ import { AuthenticationService } from '../authentication.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
+  private isLocalStorageAvailable = typeof localStorage !== 'undefined';
+
   
   constructor(private authService: AuthenticationService) {}
 
   checkLogin() {
-    return this.authService.token != null;
+    return this.isLocalStorageAvailable ?
+      localStorage.length !== 0
+      :
+      false;
   }
 
   logOut() {

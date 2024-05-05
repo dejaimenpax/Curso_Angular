@@ -15,12 +15,12 @@ export class AuthenticationService {
   private url: string = 'http://localhost:3000/authenticated';
 
   token: Token | null = null;
-
+  
   constructor(
     private httpClient: HttpClient,
     private router: Router,
     private authorService: AuthorService
-  ) { }
+  ) {}
 
   login(idAuthor: string): void {
     this.authorService.getAuthor(idAuthor).subscribe(author => {
@@ -55,13 +55,14 @@ export class AuthenticationService {
 
   saveSession(tokenGenerated: string, idAuthor: string): Observable<Object> {
     const session: Object = { 'id': tokenGenerated, 'author': idAuthor };
-
+    localStorage.setItem(tokenGenerated, idAuthor);
     return this.httpClient.post(this.url, session).pipe(
       catchError(this.handleError)
     );
   }
 
   deleteSession(): Observable<Object> {
+    localStorage.clear();
     return this.httpClient.delete(this.url + '/' + this.token!.key).pipe(
       catchError(this.handleError)
     );

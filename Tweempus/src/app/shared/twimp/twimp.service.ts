@@ -40,7 +40,7 @@ export class TwimpService {
     );
   }
 
-  setFavorite(idAuthor: string, idTwimp: string): Observable<boolean> {
+  setFavorite(idAuthor: string, idTwimp: string): Observable<Object> {
     const urlAux = this.urlFavorite + '/' + idAuthor;
 
     return this.httpClient.get(urlAux).pipe(
@@ -49,10 +49,6 @@ export class TwimpService {
         favorites.push(idTwimp);
         response['twimps'] = favorites;
         return this.httpClient.put(urlAux, response).pipe(
-          map(() => {
-            console.log("Entra al put del setFavorite");
-            return true;
-          }),
           catchError(this.handleError)
         );
       }),
@@ -61,7 +57,7 @@ export class TwimpService {
     
   }
 
-  deleteFavorite(idAuthor: string, idTwimp: string): Observable<boolean> {
+  deleteFavorite(idAuthor: string, idTwimp: string): Observable<Object> {
     const urlAux = this.urlFavorite + '/' + idAuthor;
 
     return this.httpClient.get(urlAux).pipe(
@@ -69,9 +65,6 @@ export class TwimpService {
         let favorites: string[] = response['twimps'];
         response['twimps'] = favorites.filter(x => x !== idTwimp);
         return this.httpClient.put(urlAux, response).pipe(
-          map(() => {
-            return true;
-          }),
           catchError(this.handleError)
         );
       }),
