@@ -9,6 +9,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
 import { ErrorModule } from './error/error.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from './core/header-interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,12 @@ import { ErrorModule } from './error/error.module';
     ErrorModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true,
+  }
   ],
   bootstrap: [AppComponent]
 })
