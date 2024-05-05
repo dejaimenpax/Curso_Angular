@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable, throwError, from } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { Author } from '../author/author.model';
 import { Twimp } from './twimp.model';
@@ -40,7 +40,45 @@ export class TwimpService {
     );
   }
 
+  setFavorite(idAuthor: string, idTwimp: string): Observable<boolean> {
+    const urlAux = this.urlFavorite + '/' + idAuthor;
 
+    return this.httpClient.get(urlAux).pipe(
+      switchMap((response: any) => {
+        let favorites: string[] = response['twimps'];
+        favorites.push(idTwimp);
+        response['twimps'] = favorites;
+        return this.httpClient.put(urlAux, response).pipe(
+          map(() => {
+            console.log("Entra al put del setFavorite");
+            return true;
+          }),
+          catchError(this.handleError)
+        );
+      }),
+      catchError(this.handleError)
+    );
+    
+  }
+
+  deleteFavorite(idAuthor: string, idTwimp: string): Observable<boolean> {
+    const urlAux = this.urlFavorite + '/' + idAuthor;
+
+    return this.httpClient.get(urlAux).pipe(
+      switchMap((response: any) => {
+        let favorites: string[] = response['twimps'];
+        response['twimps'] = favorites.filter(x => x !== idTwimp);
+        return this.httpClient.put(urlAux, response).pipe(
+          map(() => {
+            return true;
+          }),
+          catchError(this.handleError)
+        );
+      }),
+      catchError(this.handleError)
+    );
+  }
+  
   handleError(error: any) {
     let errMsg = (error.message) ? error.message : 
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
