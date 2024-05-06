@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { Twimp } from '../twimp.model';
 import { TwimpService } from '../twimp.service';
 import { Observable, from } from 'rxjs';
+import { AuthenticationService } from '../../../core/authentication.service';
 
 @Component({
   selector: 'tweempus-twimp-card',
@@ -16,13 +17,13 @@ export class TwimpCardComponent {
     private twimpService: TwimpService
   ) {}
 
-  handleFavorite(idUser: string, idTwimp: string){
+  handleFavorite(idTwimp: string){
     this.twimp.favorite ?
-      this.twimpService.deleteFavorite('1',idTwimp).subscribe(() => 
+      this.twimpService.deleteFavorite(localStorage.getItem(localStorage.key(0)!)!,idTwimp).subscribe(() => 
         console.log("Favorito eliminado") 
       )
       :
-      this.twimpService.setFavorite('1',idTwimp).subscribe(() => 
+      this.twimpService.setFavorite(localStorage.getItem(localStorage.key(0)!)!,idTwimp).subscribe(() => 
       console.log("Favorito añadido")   
       );
 

@@ -8,19 +8,15 @@ import { AuthorService } from './author/author.service';
 import { TwimpService } from './twimp/twimp.service';
 import { DashboardModule } from '../dashboard/dashboard.module';
 
-
-
 @NgModule({
-  declarations: [
+  declarations: [TwimpCardComponent, TwimpListComponent, AuthorCardComponent],
+  imports: [CommonModule, RouterModule],
+  exports: [
     TwimpCardComponent,
     TwimpListComponent,
-    AuthorCardComponent
+    AuthorCardComponent,
+    RouterModule,
   ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports: [TwimpCardComponent, TwimpListComponent, AuthorCardComponent, RouterModule],
-  providers: [AuthorService, TwimpService]
+  providers: [AuthorService, TwimpService],
 })
-export class SharedModule { }
+export class SharedModule {}

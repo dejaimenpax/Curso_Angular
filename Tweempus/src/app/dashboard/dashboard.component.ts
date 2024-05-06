@@ -42,7 +42,8 @@ export class DashboardComponent implements OnInit {
       from(twimps).subscribe(twimp => {
         this.authorService.getAuthor(twimp.author.id).subscribe(author => {
           twimp.author = author;
-          this.twimpService.getFavoritesByAuthor('1', twimp.id).subscribe(favorite => {
+          //Workaround to obtain the idAuthor from localStorage
+          this.twimpService.getFavoritesByAuthor(localStorage.getItem(localStorage.key(0)!)!, twimp.id).subscribe(favorite => {
             twimp.favorite = favorite;
             this.twimpList.push(twimp);
           });

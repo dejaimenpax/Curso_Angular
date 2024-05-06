@@ -3,6 +3,6 @@
     <section>
         <button class="header_auth" routerLink="/login" routerLinkActive="active" *ngIf="!checkLogin()">Iniciar Sesión</button>
         <button class="header_auth" *ngIf="checkLogin()" (click)="logOut()">Cerrar Sesión</button>
-        <button class="header_register" *ngIf="!checkLogin()" >Regístrate</button>
+        <button class="header_register" routerLink="/signup" routerLinkActive="active" *ngIf="!checkLogin()" >Regístrate</button>
     </section>
 </section>

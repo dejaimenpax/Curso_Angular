@@ -9,9 +9,18 @@
       "id": "2",
       "fullName": "Jaime Casero",
       "image": "https://randomuser.me/api/portraits/men/46.jpg"
+    },
+    {
+      "id": "jose99",
+      "fullName": "Jose Pulido Ruiz",
+      "image": ""
     }
   ],
   "authenticated": [
+    {
+      "id": "USKBZ1715015921737",
+      "author": "jose99"
+    }
   ],
   "twimps": [
     {
@@ -38,6 +47,12 @@
     },
     {
       "id": "2",
+      "twimps": [
+        "Mx5Cf1483389903318"
+      ]
+    },
+    {
+      "id": "jose99",
       "twimps": [
         "Mx5Cf1483389903318"
       ]
