@@ -6,21 +6,23 @@ import { FavoriteTwimpsComponent } from './favorite-twimps/favorite-twimps.compo
 import { MyTwimpsComponent } from './my-twimps/my-twimps.component';
 
 const profileRoutes: Routes = [
-    { 
-        path: 'profile', 
+    {
+        path: 'profile/:id',
         component: ProfileComponent,
         children: [
             {
                 path: '',
-                redirectTo: '/profile/my-twimps', //se pone por defecto al llamar a profile
+                redirectTo: 'my-twimps',
                 pathMatch: 'full'
             },
-            {   path: 'my-twimps',
+            {
+                path: 'my-twimps',
                 component: MyTwimpsComponent
             },
-            {   path: 'favorite-twimps',
+            {
+                path: 'favorite-twimps',
                 component: FavoriteTwimpsComponent
-            }
+            },
         ]
     },
 ];

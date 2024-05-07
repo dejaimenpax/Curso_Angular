@@ -5,14 +5,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
 
 import { Author } from './author.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorService {
 
-  private url: string = 'http://localhost:3000/authors';
-  private urlFav: string = 'http://localhost:3000/author-favorites'
+  private url: string = environment.url + 'authors';
+  private urlFav: string = environment.url + 'author-favorites'
 
   constructor(private httpClient: HttpClient) { }
 
