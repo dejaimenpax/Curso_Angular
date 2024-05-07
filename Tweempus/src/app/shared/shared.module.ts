@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 import { AuthorService } from './author/author.service';
 import { TwimpService } from './twimp/twimp.service';
 import { DashboardModule } from '../dashboard/dashboard.module';
+import { SortByPipe } from './sort-by.pipe';
 
 @NgModule({
-  declarations: [TwimpCardComponent, TwimpListComponent, AuthorCardComponent],
+  declarations: [TwimpCardComponent, TwimpListComponent, AuthorCardComponent, SortByPipe],
   imports: [CommonModule, RouterModule],
   exports: [
     TwimpCardComponent,

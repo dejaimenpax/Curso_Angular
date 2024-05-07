@@ -55,14 +55,14 @@ export class AuthenticationService {
 
   saveSession(tokenGenerated: string, idAuthor: string): Observable<Object> {
     const session: Object = { 'id': tokenGenerated, 'author': idAuthor };
-    localStorage.setItem(tokenGenerated, idAuthor);
+    sessionStorage.setItem(tokenGenerated, idAuthor);
     return this.httpClient.post(this.url, session).pipe(
       catchError(this.handleError)
     );
   }
 
   deleteSession(): Observable<Object> {
-    localStorage.clear();
+    sessionStorage.clear();
     return this.httpClient.delete(this.url + '/' + this.token!.key).pipe(
       catchError(this.handleError)
     );

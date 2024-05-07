@@ -16,12 +16,7 @@
       "image": ""
     }
   ],
-  "authenticated": [
-    {
-      "id": "bTge81715065888092",
-      "author": "1"
-    }
-  ],
+  "authenticated": [],
   "twimps": [
     {
       "id": "Mx5Cf1483389903318",
@@ -35,7 +30,7 @@
       "author": "2",
       "by": "Jaime Casero",
       "content": "Programmers always mix up Halloween and Christmas because OCT 31 = DEC 25.",
-      "timestamp": "01-01-2024"
+      "timestamp": "01-01-2023"
     }
   ],
   "author-favorites": [

@@ -8,14 +8,14 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class HeaderComponent {
 
-  private isLocalStorageAvailable = typeof localStorage !== 'undefined';
+  private isSessionStorageAvailable = typeof sessionStorage !== 'undefined';
 
   
   constructor(private authService: AuthenticationService) {}
 
   checkLogin() {
-    return this.isLocalStorageAvailable ?
-      localStorage.length !== 0
+    return this.isSessionStorageAvailable ?
+      sessionStorage.length !== 0
       :
       false;
   }

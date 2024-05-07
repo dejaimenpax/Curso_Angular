@@ -6,13 +6,13 @@ export const AuthGuard: CanActivateFn = () => {
     //for dependencies injector because it's not a class (doesn't have constructor)
     const router = inject(Router);
 
-    const isLocalStorageAvailable = typeof localStorage !== 'undefined';
+    const isSessionStorageAvailable = typeof sessionStorage !== 'undefined';
 
     const authService = inject(AuthenticationService)
 
     //if user has token
-    if(isLocalStorageAvailable){
-        if(localStorage.length !== 0){
+    if(isSessionStorageAvailable){
+        if(sessionStorage.length !== 0){
             return true;
         }
     }

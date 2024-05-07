@@ -1,13 +1,13 @@
 <section class="twimp_list">
-    @for (tw of twimps; track tw.id) {
+    @for (tw of twimps | sortBy; track tw.id) {
         <tweempus-twimp-card [twimp]="tw"></tweempus-twimp-card>
     }
 </section>
 
 <!-- Alternativa
 
-    <section *ngFor="let twimp of twimps" class=twimp_list>
-        <tweempus-twimp-card [twimp]="twimp"></tweempus-twimp-card>
-    </section>
+<section *ngFor="let twimp of twimps | sortBy" class="twimp_list">
+  <tweempus-twimp-card [twimp]="twimp"></tweempus-twimp-card>
+</section>
 
 -->

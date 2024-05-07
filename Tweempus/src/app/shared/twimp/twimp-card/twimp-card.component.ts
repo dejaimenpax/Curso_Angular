@@ -19,11 +19,11 @@ export class TwimpCardComponent {
 
   handleFavorite(idTwimp: string){
     this.twimp.favorite ?
-      this.twimpService.deleteFavorite(localStorage.getItem(localStorage.key(0)!)!,idTwimp).subscribe(() => 
+      this.twimpService.deleteFavorite(sessionStorage.getItem(sessionStorage.key(0)!)!,idTwimp).subscribe(() => 
         console.log("Favorito eliminado") 
       )
       :
-      this.twimpService.setFavorite(localStorage.getItem(localStorage.key(0)!)!,idTwimp).subscribe(() => 
+      this.twimpService.setFavorite(sessionStorage.getItem(sessionStorage.key(0)!)!,idTwimp).subscribe(() => 
       console.log("Favorito añadido")   
       );
 
