@@ -4,7 +4,7 @@ export class Twimp {
     private _id: string;
     private _url: string;
     private _author: Author;
-    private _content: string;
+    private _content: string; 
     private _timestamp: string;
     private _favorite: boolean;
 

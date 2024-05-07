@@ -33,6 +33,7 @@ export class AuthorService {
 
   }
 
+
   setAuthor(idAuthor: string, fullName: string, image: string): Observable<any> {
     let dbAuthor: any = {'id': idAuthor, 'fullName': fullName, 'image': image};
     return this.httpClient.post(this.url, dbAuthor).pipe(
