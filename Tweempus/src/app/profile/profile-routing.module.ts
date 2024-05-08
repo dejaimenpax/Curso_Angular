@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile.component';
 import { FavoriteTwimpsComponent } from './favorite-twimps/favorite-twimps.component';
 import { MyTwimpsComponent } from './my-twimps/my-twimps.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 const profileRoutes: Routes = [
     {
@@ -14,6 +15,7 @@ const profileRoutes: Routes = [
                 path: '',
                 redirectTo: 'my-twimps',
                 pathMatch: 'full'
+                
             },
             {
                 path: 'my-twimps',
@@ -22,6 +24,10 @@ const profileRoutes: Routes = [
             {
                 path: 'favorite-twimps',
                 component: FavoriteTwimpsComponent
+            },
+            {
+                path: 'edit',
+                component: EditUserComponent
             },
         ]
     },

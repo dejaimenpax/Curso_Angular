@@ -1,0 +1,38 @@
+<section class="main section_edituser">
+
+    <div class="edituser_box rubberBand">
+      <form class="edituser_form" [formGroup]="editUserForm" (ngSubmit)="editUser(editUserForm)">
+        <!-- NICK -->
+        <div>
+            <label class="edituser_form_nick">Id de autor: {{ currentUser?.id }}</label>
+        </div>
+        <!-- NICK -->
+  
+        <!-- FULL NAME -->
+        <div>
+            <label class="edituser_form_label">Tu nombre actual es: {{ currentUser?.fullName }}</label>
+            <label class="edituser_form_label">Introduce el nuevo nombre:</label>
+            <div class="edituser_form_error" *ngIf="editUserForm.get('fullName')!.hasError('required') && !editUserForm.get('fullName')!.pristine">
+              El nombre es obligatorio
+            </div>
+            <div class="edituser_form_error" *ngIf="editUserForm.get('fullName')!.hasError('minlength') && !editUserForm.get('fullName')!.pristine">
+              Tu nombre debe tener como mínimo 3 carácteres
+            </div>
+            <input type="text" class="edituser_form_input-text" formControlName="fullName">
+        </div>
+        <!-- FULL NAME -->
+  
+        <!-- IMAGE -->
+        <div>
+            <label class="edituser_form_label">Tu URL de imagen actual es: {{ currentUser?.image }}</label>
+            <label class="edituser_form_label">Añade una nueva URL para tu imagen:</label>
+            <input type="url" class="edituser_form_input-text" formControlName="image">
+        </div>
+
+        <!-- IMAGE -->
+
+        <button *ngIf="checkLogin()" type="submit" class="edituser_button" [disabled]="editUserForm.invalid">Editar datos</button>
+      </form>
+    </div>
+  
+  </section>

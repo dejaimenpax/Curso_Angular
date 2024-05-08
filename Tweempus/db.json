@@ -14,6 +14,11 @@
       "id": "jose99",
       "fullName": "Jose Pulido Ruiz",
       "image": ""
+    },
+    {
+      "id": "3",
+      "fullName": "Juan Guarnizo",
+      "image": ""
     }
   ],
   "authenticated": [],
@@ -64,6 +69,12 @@
       "id": "jose99",
       "twimps": [
         "Mx5Cf1483389903318"
+      ]
+    },
+    {
+      "id": "3",
+      "twimps": [
+        "w5t9K1715093559108"
       ]
     }
   ],

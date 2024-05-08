@@ -1,0 +1,73 @@
+.edituser_box {
+    width: 80%;
+    margin: 2em auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.35);
+    padding: 3em;
+    min-height: 300px;
+    text-align: center; /* Para centrar el contenido */
+}
+
+.edituser_image {
+    margin-bottom: 1em;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Para asegurar que la imagen se ajuste correctamente */
+}
+
+.edituser_form_label {
+    font-size: 1em; /* Tamaño de fuente un poco más grande */
+    margin: 10px auto; /* Espaciado reducido */
+    width: 100%; /* Ancho completo */
+    display: block;
+}
+
+.edituser_form_nick {
+    font-size: 1.5em; /* Tamaño de fuente un poco más grande */
+    margin: 10px auto; /* Espaciado reducido */
+    width: 100%; /* Ancho completo */
+    display: block;
+}
+
+
+.edituser_form_input-text {
+    padding: 10px;
+    font-size: 1em; /* Tamaño de fuente un poco más grande */
+    border: none;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border 0.3s;
+    width: 80%; /* Ancho del input ajustado */
+    margin: 10px auto; /* Espaciado reducido */
+    display: block;
+}
+
+.edituser_form_input-text:focus {
+    border-bottom: solid 2px #969696;
+}
+
+.edituser_button {
+    width: 80%;
+    height: 50px;
+    background-color: #d94f5c;
+    margin: 20px auto;
+    display: block;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em; /* Tamaño de fuente un poco más grande */
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+.edituser_button:hover {
+    transition: .35s ease-in-out;
+    background-color: #993333;
+}
+
+.edituser_button:active {
+    transition: .35s ease-in-out;
+    background-color: #c64652;
+}

@@ -42,6 +42,13 @@ export class AuthorService {
     )
   }
 
+  editAuthor(idAuthor: string, fullName: string, image: string): Observable<any> {
+    let dbAuthor: any = {'id': idAuthor, 'fullName': fullName, 'image': image};
+    return this.httpClient.put(this.url + '/' + idAuthor, dbAuthor).pipe(
+      catchError(this.handleError),  
+    )
+  }
+
   createFavorite(idAuthor: string): Observable<any> {
     let dbAuthorFav: any = {'id': idAuthor, 'twimps': []};
     return this.httpClient.post(this.urlFav, dbAuthorFav).pipe(
