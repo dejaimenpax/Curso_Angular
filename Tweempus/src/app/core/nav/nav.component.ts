@@ -9,15 +9,14 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class NavComponent {
 
-  private isSessionStorageAvailable = typeof sessionStorage !== 'undefined';
 
   idAuthor: string | null = null;
 
   constructor(private authService: AuthenticationService) { }
 
-  checkLogin = () => {
-    if (this.isSessionStorageAvailable) {
-      this.idAuthor = sessionStorage.getItem(sessionStorage.key(0)!);
+  checkLogin() {
+    if (this.authService.token != null) {
+      this.idAuthor = this.authService.token.idAuthor;
       return true;
     }
     this.idAuthor = null;

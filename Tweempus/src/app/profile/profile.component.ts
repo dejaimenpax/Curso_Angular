@@ -7,8 +7,8 @@ import { switchMap } from 'rxjs/operators';
 import { AuthorService } from '../shared/author/author.service';
 
 import { Author } from '../shared/author/author.model';
+import { AuthenticationService } from '../core/authentication.service';
 
-const isSessionStorageAvailable = typeof sessionStorage !== 'undefined';
 
 @Component({
   selector: 'tweempus-profile',
@@ -26,17 +26,19 @@ export class ProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authorService: AuthorService) { }
+    private authorService: AuthorService,
+    private authService: AuthenticationService
+  ) { }
 
   ngOnInit() {
     // this.observableId = this.route.params.pipe(
     //   switchMap((params: Params) => params['id']),
     // );
     // this.idAuthor = this.observableId.subscribe(id => id);
-    if (isSessionStorageAvailable){
-      this.idAuthor = sessionStorage.getItem(sessionStorage.key(0)!)!;
-    }
-    this.authorService.getAuthor(this.idAuthor!).subscribe(res => this.author = res);
+
+    this.idAuthor = this.route.snapshot.params['id'];
+    this.authorService.getAuthor(this.idAuthor!).subscribe(author => this.author = author);
   }
+  
 
 }

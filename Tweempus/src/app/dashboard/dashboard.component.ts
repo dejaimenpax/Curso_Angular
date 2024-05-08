@@ -4,6 +4,7 @@ import { AuthorService } from '../shared/author/author.service';
 import { Twimp } from '../shared/twimp/twimp.model';
 import { TwimpService } from '../shared/twimp/twimp.service';
 import { Observable, from } from 'rxjs';
+import { AuthenticationService } from '../core/authentication.service';
 
 @Component({
   selector: 'tweempus-dashboard',
@@ -16,7 +17,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     //declarated in constructor in order t be seen from the dependencies injector
     private authorService: AuthorService,
-    private twimpService: TwimpService
+    private twimpService: TwimpService,
+    private authService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
@@ -42,8 +44,8 @@ export class DashboardComponent implements OnInit {
       from(twimps).subscribe(twimp => {
         this.authorService.getAuthor(twimp.author.id).subscribe(author => {
           twimp.author = author;
-          //Workaround to obtain the idAuthor from sessionStorage
-          this.twimpService.getFavoritesByAuthor(sessionStorage.getItem(sessionStorage.key(0)!)!, twimp.id).subscribe(favorite => {
+
+          this.twimpService.getFavoritesByAuthor(this.authService.token!.idAuthor, twimp.id).subscribe(favorite => {
             twimp.favorite = favorite;
             this.twimpList.push(twimp);
           });

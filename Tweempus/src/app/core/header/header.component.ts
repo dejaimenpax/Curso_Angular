@@ -7,17 +7,14 @@ import { AuthenticationService } from '../authentication.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
-  private isSessionStorageAvailable = typeof sessionStorage !== 'undefined';
-
   
   constructor(private authService: AuthenticationService) {}
 
   checkLogin() {
-    return this.isSessionStorageAvailable ?
-      sessionStorage.length !== 0
-      :
-      false;
+    if(this.authService.token != null) {
+      return true;
+    }
+    return false;
   }
 
   logOut() {

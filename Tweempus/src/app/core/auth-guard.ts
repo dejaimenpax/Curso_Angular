@@ -5,16 +5,11 @@ import { AuthenticationService } from "./authentication.service";
 export const AuthGuard: CanActivateFn = () => {
     //for dependencies injector because it's not a class (doesn't have constructor)
     const router = inject(Router);
-
-    const isSessionStorageAvailable = typeof sessionStorage !== 'undefined';
-
-    const authService = inject(AuthenticationService)
+    const authService = inject(AuthenticationService);
 
     //if user has token
-    if(isSessionStorageAvailable){
-        if(sessionStorage.length !== 0){
-            return true;
-        }
+    if(authService.token != null) {
+        return true;
     }
     return router.navigate(['/login']);
 

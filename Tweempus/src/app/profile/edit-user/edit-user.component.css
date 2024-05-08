@@ -25,6 +25,14 @@
     display: block;
 }
 
+.edituser_form_error {
+    font-size: 75%;
+    word-spacing: -0.4pt;
+    margin: 20px auto;
+    width: 80%;
+    color: red;
+}
+
 .edituser_form_nick {
     font-size: 1.5em; /* Tamaño de fuente un poco más grande */
     margin: 10px auto; /* Espaciado reducido */

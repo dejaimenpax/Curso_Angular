@@ -14,16 +14,17 @@ export class TwimpCardComponent {
   @Input() twimp!: Twimp;
 
   constructor(
-    private twimpService: TwimpService
+    private twimpService: TwimpService,
+    private authService: AuthenticationService
   ) {}
 
   handleFavorite(idTwimp: string){
     this.twimp.favorite ?
-      this.twimpService.deleteFavorite(sessionStorage.getItem(sessionStorage.key(0)!)!,idTwimp).subscribe(() => 
+      this.twimpService.deleteFavorite(this.authService.token!.idAuthor, idTwimp).subscribe(() => 
         console.log("Favorito eliminado") 
       )
       :
-      this.twimpService.setFavorite(sessionStorage.getItem(sessionStorage.key(0)!)!,idTwimp).subscribe(() => 
+      this.twimpService.setFavorite(this.authService.token!.idAuthor,idTwimp).subscribe(() => 
       console.log("Favorito añadido")   
       );
 

@@ -14,6 +14,7 @@ import { environment } from '../../environments/environment';
 export class AuthenticationService {
 
   private url: string = environment.url + 'authenticated';
+  private isSessionStorageAvailable = typeof sessionStorage !== 'undefined';
 
   token: Token | null = null;
   
@@ -21,14 +22,24 @@ export class AuthenticationService {
     private httpClient: HttpClient,
     private router: Router,
     private authorService: AuthorService
-  ) {}
+  ) {
+    let token!: any;
+
+    if (this.isSessionStorageAvailable)
+      token = sessionStorage.getItem('token');
+    
+    if(token != null) {
+      let tokenLS = JSON.parse(token);
+      this.token = new Token(tokenLS['_key'], tokenLS['_idAuthor']);
+    }
+  }
 
   login(idAuthor: string): void {
     this.authorService.getAuthor(idAuthor).subscribe(author => {
       const tokenGenerated = this.generateToken();
       this.saveSession(tokenGenerated, author.id).subscribe((response: any) => {
         this.token = new Token(response['id'], response['author']);
-        sessionStorage.setItem(tokenGenerated, idAuthor);
+        sessionStorage.setItem('token', JSON.stringify(this.token));
         this.router.navigate(['/dashboard']);
       });
     });
@@ -37,7 +48,7 @@ export class AuthenticationService {
   logout(): void {
     this.deleteSession().subscribe(response => {
       this.token = null;
-      sessionStorage.clear();
+      sessionStorage.removeItem("token");
       this.router.navigate(['/login']);
     });
   }

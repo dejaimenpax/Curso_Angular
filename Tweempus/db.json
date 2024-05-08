@@ -3,7 +3,7 @@
     {
       "id": "1",
       "fullName": "Jaime González",
-      "image": "https://randomuser.me/api/portraits/men/22.jpg"
+      "image": "https://randomuser.me/api/portraits/men/15.jpg"
     },
     {
       "id": "2",
@@ -21,7 +21,12 @@
       "image": ""
     }
   ],
-  "authenticated": [],
+  "authenticated": [
+    {
+      "id": "DlJOh1715173774500",
+      "author": "2"
+    }
+  ],
   "twimps": [
     {
       "id": "Mx5Cf1483389903318",
@@ -42,13 +47,6 @@
       "author": "1",
       "by": "Jaime González",
       "content": "New twit",
-      "timestamp": "7-5-2024"
-    },
-    {
-      "id": "w5t9K1715093559108",
-      "author": "2",
-      "by": "Jaime Casero",
-      "content": "12",
       "timestamp": "7-5-2024"
     }
   ],

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { AuthenticationService } from '../../core/authentication.service';
 import { AuthorService } from '../../shared/author/author.service';
 import { Author } from '../../shared/author/author.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'tweempus-edituser',
@@ -13,13 +14,14 @@ import { Author } from '../../shared/author/author.model';
 export class EditUserComponent implements OnInit {
   editUserForm!: FormGroup;
   userAlreadyExist: boolean = true;
-  isSessionStorageAvailable = typeof sessionStorage !== 'undefined';
 
-  currentUser!: any;
+  idAuthor: string | null = null;
+  author: Author | null = null;
 
   constructor(
     private authService: AuthenticationService,
     private authorService: AuthorService,
+    private route: ActivatedRoute,
     private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -27,17 +29,17 @@ export class EditUserComponent implements OnInit {
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       image: ['']
     });
-    if (this.isSessionStorageAvailable){
-      this.authorService.getAuthor(sessionStorage.getItem(sessionStorage.key(0)!)!).subscribe({
-        next: response => this.currentUser = response,
-        error: () => this.userAlreadyExist = false
-      });
-    }
+
+    this.idAuthor = this.route.parent!.snapshot.params['id'];
+    console.log("El id de las rutas que saca es ", this.idAuthor)
+    this.authorService.getAuthor(this.authService.token!.idAuthor).subscribe(author => this.author = author);
+    
   }
 
   checkLogin() {
-    if (this.isSessionStorageAvailable) {
-      return this.currentUser.id === sessionStorage.getItem(sessionStorage.key(0)!)!;
+    if (this.authService.token != null) {
+      if (this.idAuthor == this.authService.token.idAuthor)
+        return true;
     }
     return false;
   }
@@ -47,9 +49,9 @@ export class EditUserComponent implements OnInit {
     if (this.userAlreadyExist) {
       this.userAlreadyExist = true;
     } 
-    this.authorService.getAuthor(sessionStorage.getItem(sessionStorage.key(0)!)!).subscribe({
-      next: () => this.authorService.editAuthor(sessionStorage.getItem(sessionStorage.key(0)!)!, form.value.fullName, form.value.image).subscribe(
-        response => this.currentUser = response,
+    this.authorService.getAuthor(this.author!.id).subscribe({
+      next: () => this.authorService.editAuthor(this.authService.token!.idAuthor, form.value.fullName, form.value.image).subscribe(
+        response => this.author = response,
       ),
       error: () => this.userAlreadyExist = false
     });

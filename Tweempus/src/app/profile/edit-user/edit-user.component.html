@@ -4,15 +4,15 @@
       <form class="edituser_form" [formGroup]="editUserForm" (ngSubmit)="editUser(editUserForm)">
         <!-- NICK -->
         <div>
-            <label class="edituser_form_nick">Id de autor: {{ currentUser?.id }}</label>
+            <label *ngIf="author" class="edituser_form_nick">Id de autor: {{ author.id }}</label>
         </div>
         <!-- NICK -->
   
         <!-- FULL NAME -->
         <div>
-            <label class="edituser_form_label">Tu nombre actual es: {{ currentUser?.fullName }}</label>
+            <label *ngIf="author" class="edituser_form_label">Tu nombre actual es: {{ author.fullName }}</label>
             <label class="edituser_form_label">Introduce el nuevo nombre:</label>
-            <div class="edituser_form_error" *ngIf="editUserForm.get('fullName')!.hasError('required') && !editUserForm.get('fullName')!.pristine">
+            <div class="edituser_form_error" *ngIf="editUserForm.get('fullName')!.hasError('required')">
               El nombre es obligatorio
             </div>
             <div class="edituser_form_error" *ngIf="editUserForm.get('fullName')!.hasError('minlength') && !editUserForm.get('fullName')!.pristine">
@@ -24,7 +24,7 @@
   
         <!-- IMAGE -->
         <div>
-            <label class="edituser_form_label">Tu URL de imagen actual es: {{ currentUser?.image }}</label>
+            <label *ngIf="author" class="edituser_form_label">Tu URL de imagen actual es: {{ author.image }}</label>
             <label class="edituser_form_label">Añade una nueva URL para tu imagen:</label>
             <input type="url" class="edituser_form_input-text" formControlName="image">
         </div>

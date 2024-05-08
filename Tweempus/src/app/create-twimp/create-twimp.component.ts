@@ -36,7 +36,7 @@ export class CreateTwimpComponent implements OnInit {
       let author!: Author;
       let twimp!: Twimp;
 
-      this.authorService.getAuthor(sessionStorage.getItem(sessionStorage.key(0)!)!).subscribe(
+      this.authorService.getAuthor(this.authService.token!.idAuthor).subscribe(
         res => {
           author = new Author(res['id'], res['fullName']);
           twimp =  new Twimp(this.authService.generateToken(), '', author, form.value.content, twimpDate);
